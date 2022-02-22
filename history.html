@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="grid-history">
+        <span>
+            <strong>Symbol</strong>
+        </span>
+        <span>
+            <strong>Shares</strong>
+        </span>
+        <span>
+            <strong>Price</strong>
+        </span>
+        <span>
+           <strong>Transacted</strong>
+        </span>
+        {% for stock in stocks %}
+            <span class="stock-info">{{ stock.symbol }}</span>
+            <span class="stock-info">{{ stock.shares }}</span>
+            <span class="stock-info">${{ stock.price }}</span>
+            <span class="stock-info">{{ stock.transaction_time }}</span>
+        {% endfor %}
+    </div>
+{% endblock %}

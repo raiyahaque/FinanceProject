@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="grid">
+        <span>
+            <strong>Symbol</strong>
+        </span>
+        <span>
+            <strong>Name</strong>
+        </span>
+        <span>
+            <strong>Shares</strong>
+        </span>
+        <span>
+            <strong>Price</strong>
+        </span>
+        <span>
+           <strong>TOTAL</strong>
+        </span>
+        {% if stocks %}
+            {% for stock in stocks %}
+                <span>{{ stock.symbol }}</span>
+                <span class="stock-info">{{ stock.name }}</span>
+                <span class="stock-info">{{ stock.shares }}</span>
+                <span class="stock-info">${{ stock.price }}</span>
+                <span class="stock-info">${{ stock.total }}</span>
+            {% endfor %}
+        {% else %}
+
+        {% endif %}
+        <span><strong>CASH</strong></span>
+        <span class="remaining_cash">${{ remaining_cash }}</span>
+        <span class="total_cash"><strong>${{ total_cash }}</strong></span>
+    </div>
+{% endblock %}
